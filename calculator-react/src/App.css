@@ -1,0 +1,24 @@
+
+
+button, input{
+  border-radius: 0px !important; 
+}
+
+#calculator div button{
+  /* background-color: black; */
+}
+
+#calculator-body button{
+  width: 25%;
+  height: 50px;
+}
+
+#calculator-body button.digit:hover{
+  background-color: orange;
+}
+
+.list-group-item:hover{
+  background-color: grey;
+  cursor: pointer;
+}
+
