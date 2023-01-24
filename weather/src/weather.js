@@ -81,8 +81,11 @@ function Weather() {
                 </div>
                 : null
             } */}
-            <GoogleMap currentCity={currentCity} userCity={userCity} />
-            <WeatherData currentCity={currentCity || userCity} />
+            <div className='d-flex justify-content-center'>
+
+                <GoogleMap currentCity={currentCity} userCity={userCity} />
+                <WeatherData currentCity={currentCity || userCity} />
+            </div>
         </div>
 
     )

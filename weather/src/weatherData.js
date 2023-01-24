@@ -29,7 +29,7 @@ function WeatherData({currentCity}) {
 
     return (
 
-        <div >
+        <div className='w-100 p-2'>
             {/* <form onSubmit={handleSubmit}>
                 <input className='form-control mb-3' placeholder='Enter Latitude' value={lat} onChange={(e) => setLat(e.target.value)} />
                 <input className='form-control mb-3' placeholder='Enter Longitude' value={lon} onChange={(e) => setLon(e.target.value)} />
@@ -37,7 +37,7 @@ function WeatherData({currentCity}) {
             </form> */}
             {weatherData&&currentCity ?
                 <>
-                <h1 className='display-4 text-center'>Weather Data</h1>
+                <h1 className='display-6 text-center'>Weather Data</h1>
                     <div className='card my-5'>
                         <img alt='weather description img' className='card-img-top' src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`} style={{width:'100px', margin:'auto'}}/>
                         <div className='card-body'>
