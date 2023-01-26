@@ -1,0 +1,11 @@
+img{
+    width: 25%;
+    display: block;
+    margin: auto;
+    margin-top: 50%;
+    transition: all .5s;
+}
+
+img:hover{
+    transform: scale(2) rotate(90deg);
+}

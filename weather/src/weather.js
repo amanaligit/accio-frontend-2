@@ -32,12 +32,10 @@ function Weather() {
     }, [])
 
     const onSearch = (value) => {
-        console.log('run!');
         if (value) {
             fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${value}&limit=5&appid=aff6f1194660ee7643d426b59c2f2742`)
                 .then(data => data.json())
                 .then(results => {
-                    // console.log(results);
                     const newOptions = results.map((location, i) => ({ value: i, label: location.name + ',' + location.state + ',' + location.country }));
                     setSearchResults(results);
                     setDropOptions(newOptions);

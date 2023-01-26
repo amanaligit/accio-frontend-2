@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { ThemeContext } from './App';
 
 function WeatherData({currentCity}) {
 
@@ -6,6 +7,7 @@ function WeatherData({currentCity}) {
     // const [lon, setLon] = useState("");
 
     const [weatherData, setWeatherData] = useState(null);
+    const darkMode = useContext(ThemeContext);
 
     // const handleSubmit = (e) => {
     //     e.preventDefault()
@@ -27,6 +29,8 @@ function WeatherData({currentCity}) {
             })
     }, [currentCity])
 
+    const listClasses = 'list-group-item ' + (darkMode? 'bg-dark text-light' : '');
+
     return (
 
         <div className='w-100 p-2'>
@@ -38,7 +42,7 @@ function WeatherData({currentCity}) {
             {weatherData&&currentCity ?
                 <>
                 <h1 className='display-6 text-center'>Weather Data</h1>
-                    <div className='card my-5'>
+                    <div className={'card my-5 ' + (darkMode? 'bg-secondary text-light' : '')} >
                         <img alt='weather description img' className='card-img-top' src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`} style={{width:'100px', margin:'auto'}}/>
                         <div className='card-body'>
                             <h3 className='text-center card-title'>{weatherData.name}</h3>
@@ -46,9 +50,9 @@ function WeatherData({currentCity}) {
 
                         </div>
                         <ul className='list-group list-group-flush'>
-                            <li className='list-group-item'>Temp: {Math.floor(weatherData.main.temp - 273)}&deg;C</li>
-                            <li className='list-group-item'>Max Temp: {Math.floor(weatherData.main.temp_max - 273)}&deg;C</li>
-                            <li className='list-group-item'>Min Temp: {Math.floor(weatherData.main.temp_min - 273)}&deg;C</li>
+                            <li className={listClasses}>Temp: {Math.floor(weatherData.main.temp - 273)}&deg;C</li>
+                            <li className={listClasses}>Max Temp: {Math.floor(weatherData.main.temp_max - 273)}&deg;C</li>
+                            <li className={listClasses}>Min Temp: {Math.floor(weatherData.main.temp_min - 273)}&deg;C</li>
                         </ul>
                     </div>
                 </>
